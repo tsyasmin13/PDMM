@@ -10,7 +10,7 @@ st.title("Suivi et prédiction PDM")
 
 # --- SIDEBAR ---
 st.sidebar.header("Paramètres")
-forecast_days = st.sidebar.slider("Prédiction sur X jours", 30, 365, 90)
+forecast_days = st.sidebar.slider("Prédiction sur X jours", 30" jours", 365, 90)
 # Weighting: 0 is pure Global average, 100 is pure Recent (last 30 days)
 recent_weight = st.sidebar.slider("Je pondere la prédiction", 0, 100, 50) / 100
 
