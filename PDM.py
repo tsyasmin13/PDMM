@@ -77,15 +77,15 @@ if raw_text:
                 x=df['Date'], y=df['Poids'], 
                 mode='lines+markers', name='Historique',
                 line=dict(color='#1f77b4', width=3),
-                marker=dict(size=4, opacity=0.6)
+                marker=dict(size=3, opacity=0.6)
             ))
             
             # Prédiction en VERT
             fig.add_trace(go.Scatter(
                 x=future_dates, y=prediction_path, 
                 mode='lines+markers', name='Prédiction',
-                line=dict(color='#2ca02c', width=3, dash='dot'),
-                marker=dict(size=5, symbol='circle')
+                line=dict(color='#2ca02c', width=2, dash='dot'),
+                marker=dict(size=3, symbol='circle')
             ))
 
             fig.update_layout(
@@ -102,7 +102,7 @@ if raw_text:
             st.write("### Statistiques")
             c1, c2 = st.columns(2)
             c1.metric("Poids actuel", f"{last_weight} kg")
-            c2.metric(f"Projecté ({forecast_days} j)", 
+            c2.metric(f"Projecté dans ({forecast_days} jours )", 
                       f"{prediction_path[-1]:.1f} kg", 
                       f"{prediction_path[-1]-last_weight:+.1f} kg")
         else:
