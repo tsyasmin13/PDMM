@@ -17,8 +17,7 @@ recent_weight = st.sidebar.slider(
     "Pondération de la prédiction", 
     min_value=0, 
     max_value=100, 
-    value=50)
-    / 100
+    value=50)/ 100
 
 
 # On peut aussi ajouter des petites étiquettes de texte juste en dessous pour aider
