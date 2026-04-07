@@ -5,16 +5,16 @@ import re
 from datetime import datetime, timedelta
 import numpy as np
 
-st.set_page_config(page_title="Weight Predictor", layout="wide")
-st.title("📊 Weight History & Future Projection")
+st.set_page_config(page_title="PDM Tracker", layout="wide")
+st.title("Suivi et prédiction PDM")
 
 # --- SIDEBAR ---
-st.sidebar.header("Prediction Settings")
-forecast_days = st.sidebar.slider("Forecast Range (Days)", 30, 365, 90)
+st.sidebar.header("Paramètres")
+forecast_days = st.sidebar.slider("Prédiction sur X jours", 30, 365, 90)
 # Weighting: 0 is pure Global average, 100 is pure Recent (last 30 days)
-recent_weight = st.sidebar.slider("Weighting: Global (0%) vs. Recent (100%)", 0, 100, 50) / 100
+recent_weight = st.sidebar.slider("Je pondere la prédiction", 0, 100, 50) / 100
 
-raw_text = st.text_area("Paste Notes Here (DD/MM/YYYY Weight):", height=200)
+raw_text = st.text_area("Je colle mes poids avec leur date ici :", height=200)
 
 if raw_text:
     # Regex to find DD/MM/YYYY and the weight number
@@ -26,7 +26,7 @@ if raw_text:
         for m_date, m_weight in matches:
             try:
                 clean_date = pd.to_datetime(m_date, dayfirst=True)
-                data.append({"Date": clean_date, "Weight": float(m_weight)})
+                data.append({"Date": clean_date, "Poids": float(m_weight)})
             except:
                 continue
 
