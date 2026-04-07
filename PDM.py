@@ -22,7 +22,7 @@ recent_weight = st.sidebar.slider(
 ) / 100
 
 # On peut aussi ajouter des petites étiquettes de texte juste en dessous pour aider
-st.sidebar.caption("⬅️ Plus d'importance à l'historique | Plus d'importance au récent ➡️")
+st.sidebar.caption(" 0% = Basé sur tout  | 100% = Basé sur les 30 derniers jours ")
 
 raw_text = st.text_area("Je colle mes poids avec leur date ici :", height=200)
 
