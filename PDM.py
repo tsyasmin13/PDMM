@@ -10,9 +10,19 @@ st.title("Suivi et prédiction PDM")
 
 # --- SIDEBAR ---
 st.sidebar.header("Paramètres")
-forecast_days = st.sidebar.slider("Prédiction sur X jours", 30" jours", 365, 90)
+forecast_days = st.sidebar.slider("Prédiction sur X jours", 30, 365, 90)
 # Weighting: 0 is pure Global average, 100 is pure Recent (last 30 days)
-recent_weight = st.sidebar.slider("Je pondere la prédiction", 0, 100, 50) / 100
+# Le slider affiche "Historique (0%) <---> Récent (100%)"
+recent_weight = st.sidebar.slider(
+    "Pondération de la prédiction", 
+    min_value=0, 
+    max_value=100, 
+    value=50,
+    help="0% = Basé uniquement sur l'année complète | 100% = Basé uniquement sur les 30 derniers jours"
+) / 100
+
+# On peut aussi ajouter des petites étiquettes de texte juste en dessous pour aider
+st.sidebar.caption("⬅️ Plus d'importance à l'historique | Plus d'importance au récent ➡️")
 
 raw_text = st.text_area("Je colle mes poids avec leur date ici :", height=200)
 
