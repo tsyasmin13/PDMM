@@ -7,7 +7,7 @@ import numpy as np
 
 st.set_page_config(page_title="PDM Tracker", layout="wide")
 st.title("Suivi et prédiction PDM")
-st.header("d")
+
 
 with st.container(border=True):
     st.write("Coucou mon amoureux, comme promis je t'ai codé un site qui te permet de voir ta progression. C'est super simple à utiliser et tu n'auras pas de difficultés vu que tu es super intelligent, super beau, super musclé, super drôle. Si tu as des questions, envoie moi un snap, j'essayerai de te répondre sous 3 à 5 jours ouvrés.")
@@ -37,8 +37,8 @@ recent_weight = st.sidebar.slider(
 c1, c2 = st.sidebar.columns(2)
 c1.caption("Tout l'historique")
 c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>30 derniers jours</p>", unsafe_allow_html=True)
-
-raw_text = st.text_area("Ici tu colles directement ta note avec tes poids avec leur date :", height=200)
+st.header(""Ici tu colles directement ta note avec tes poids avec leur date :")
+raw_text = st.text_area(height=200)
 
 if raw_text:
     # Regex pour capturer la date et le poids (accepte point et virgule)
