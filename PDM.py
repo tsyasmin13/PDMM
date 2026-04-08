@@ -10,8 +10,7 @@ st.title("Suivi et prédiction PDM")
 st.header("d")
 
 with st.container(border=True):
-    st.markdown("### 💡 Astuce PDM")
-    st.write("Pour une prédiction plus précise, essayez de vous peser à heure fixe, idéalement le matin à jeun.")
+    st.write("Coucou mon amoureux, comme promis je t'ai codé une web app qui te permet de voir ta progression. C'est super simple à utiliser et tu n'auras pas de difficultés vu que tu es super intelligent. Tu es aussi super beau, super musclé, super drôle et super beau. .")
 
 # --- SIDEBAR ---
 st.sidebar.header("Paramètres")
