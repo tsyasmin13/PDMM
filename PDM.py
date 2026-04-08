@@ -123,7 +123,7 @@ except Exception as e:
 
 # --- AI MEAL ASSISTANT ---
 st.write("---")
-st.header("assistant Nutritionnel AI")
+st.header("Chatbot")
 
 # Initialize OpenAI client (Replace 'your-api-key-here' or use st.secrets)
 client = OpenAI(api_key="YOUR_OPENAI_API_KEY")
