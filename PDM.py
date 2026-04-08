@@ -12,8 +12,8 @@ st.header("d")
 with st.container(border=True):
     st.write("Coucou mon amoureux, comme promis je t'ai codé un site qui te permet de voir ta progression. C'est super simple à utiliser et tu n'auras pas de difficultés vu que tu es super intelligent, super beau, super musclé, super drôle. Si tu as des questions, envoie moi un snap, j'essayerai de te répondre sous 3 à 5 jours ouvrés.")
     st.write("Gros kiss,")
-    st.write("Ton amoureuse")
-    st.write("(C'est Yasmin)")
+    st.write("Ton amoureuse (c'est petit bébé) (yasmin)")
+    
 # --- SIDEBAR ---
 st.sidebar.header("Paramètres")
 
