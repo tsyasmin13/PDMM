@@ -7,25 +7,30 @@ import numpy as np
 
 st.set_page_config(page_title="PDM Tracker", layout="wide")
 st.title("Suivi et prédiction PDM")
-
-
+//
 # --- SIDEBAR ---
 st.sidebar.header("Paramètres")
 
-# Curseur 1
-forecast_days = st.sidebar.slider("Prédiction sur X jours :", 30, 365, 90)
-st.sidebar.caption("Min: 30 jours | Max: 365 jours") # S'affiche sous le premier curseur
+# 1. Slider de prédiction
+forecast_days = st.sidebar.slider("Je veux une prédiction de poids sur X jours :", 30, 365, 90)
+# Utilisation de colonnes pour mettre le texte aux extrémités
+col1, col2 = st.sidebar.columns(2)
+col1.caption("30 jours")
+col2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>365 jours</p>", unsafe_allow_html=True)
 
-st.sidebar.markdown("---") # Optionnel : ajoute une ligne de séparation pour la clarté
+st.sidebar.write("") # Petit espace
 
-# Curseur 2
+# 2. Slider de pondération
 recent_weight = st.sidebar.slider(
     "Je veux que ma prédiction soit basée sur :", 
     min_value=0, 
     max_value=100, 
     value=50) / 100
-st.sidebar.caption("⬅️ 0% = Tout l'historique | 100% = Les 30 derniers jours ➡️") # S'affiche sous le second curseur
 
+# Labels aux extrémités pour la pondération
+c1, c2 = st.sidebar.columns(2)
+c1.caption("Tout l'historique")
+c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>30 derniers jours</p>", unsafe_allow_html=True)
 
 raw_text = st.text_area("Je colle mes poids avec leur date ici (ex: 01/01/2025 75.5) :", height=200)
 
