@@ -8,17 +8,24 @@ import numpy as np
 st.set_page_config(page_title="PDM Tracker", layout="wide")
 st.title("Suivi et prédiction PDM")
 
+
 # --- SIDEBAR ---
 st.sidebar.header("Paramètres")
+
+# Curseur 1
 forecast_days = st.sidebar.slider("Prédiction sur X jours :", 30, 365, 90)
-st.sidebar.caption(" 30 jours | 365 jours ")
+st.sidebar.caption("Min: 30 jours | Max: 365 jours") # S'affiche sous le premier curseur
+
+st.sidebar.markdown("---") # Optionnel : ajoute une ligne de séparation pour la clarté
+
+# Curseur 2
 recent_weight = st.sidebar.slider(
     "Je veux que ma prédiction soit basée sur :", 
     min_value=0, 
     max_value=100, 
     value=50) / 100
+st.sidebar.caption("⬅️ 0% = Tout l'historique | 100% = Les 30 derniers jours ➡️") # S'affiche sous le second curseur
 
-st.sidebar.caption(" 0% = Tout l'historique | 100% = Les 30 derniers jours ")
 
 raw_text = st.text_area("Je colle mes poids avec leur date ici (ex: 01/01/2025 75.5) :", height=200)
 
