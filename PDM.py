@@ -37,7 +37,7 @@ recent_weight = st.sidebar.slider(
 c1, c2 = st.sidebar.columns(2)
 c1.caption("Tout l'historique")
 c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>30 derniers jours</p>", unsafe_allow_html=True)
-st.header(""Ici tu colles directement ta note avec tes poids avec leur date :")
+st.header("Ici tu colles directement ta note avec tes poids avec leur date :")
 raw_text = st.text_area(height=200)
 
 if raw_text:
