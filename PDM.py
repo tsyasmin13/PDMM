@@ -58,7 +58,7 @@ st.markdown("**Ici tu colles directement ta note avec tes poids et leurs dates :
 
 raw_text = st.text_area(
     "Zone de saisie", 
-    placeholder="Exemple :\n01/01/2026 75.5\n05/01/2026 75.8\n10/01/2026 76.2", 
+    placeholder="Exemple :\n19/08/2025 70.2\n20/09/2025 70.5\n21/08/2026 70.7", 
     height=200, 
     label_visibility="collapsed"
 )
