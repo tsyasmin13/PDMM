@@ -20,10 +20,10 @@ st.title("📈 Suivi et prédiction PDM")
 
 # --- MESSAGE PERSONNEL ---
 with st.container(border=True):
-    st.subheader("Coucou mon amoureux ❤️")
+    st.write("Coucou mon amoureux ❤️")
     st.write("Comme promis, je t'ai codé un site qui te permet de voir ta progression. C'est super simple à utiliser et tu n'auras pas de difficultés vu que tu es super intelligent, super beau, super musclé, super drôle.")
     st.write("Si tu as des questions, envoie-moi un snap, j'essayerai de te répondre sous 3 à 5 jours ouvrés.")
-    st.markdown("*Gros kiss,* \n**Ton amoureuse (aka petit bébé) (aka yasmin)**")
+    st.markdown("*Gros kiss,\n**Ton amoureuse (aka petit bébé) (aka yasmin)*")
 
 # --- SIDEBAR (PARAMÈTRES) ---
 st.sidebar.header("⚙️ Paramètres")
@@ -48,8 +48,8 @@ recent_weight = st.sidebar.slider(
     label_visibility="collapsed") / 100
 
 c1, c2 = st.sidebar.columns(2)
-c1.caption("Global (Stable)")
-c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>Récent (Dynamique)</p>", unsafe_allow_html=True)
+c1.caption("Sur tout l'historique")
+c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>Sur les 30 derniers jours)</p>", unsafe_allow_html=True)
 
 # --- ZONE DE SAISIE ---
 st.write("")
