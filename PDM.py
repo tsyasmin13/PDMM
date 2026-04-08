@@ -10,8 +10,8 @@ st.title("Suivi et prédiction PDM")
 
 # --- SIDEBAR ---
 st.sidebar.header("Paramètres")
-forecast_days = st.sidebar.slider("Prédiction sur X jours", 30, 365, 90)
-
+forecast_days = st.sidebar.slider("Prédiction sur X jours :", 30, 365, 90)
+st.sidebar.caption(" 30 jours | 365 jours ")
 recent_weight = st.sidebar.slider(
     "Je veux que ma prédiction soit basée sur :", 
     min_value=0, 
