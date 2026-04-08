@@ -38,8 +38,15 @@ c1, c2 = st.sidebar.columns(2)
 c1.caption("Tout l'historique")
 c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>30 derniers jours</p>", unsafe_allow_html=True)
 
-raw_text = st.text_area("Ici tu colles directement ta note avec tes poids avec leur date :",height=200)
+st.markdown("### **Ici tu colles directement ta note avec tes poids avec leur date :**")
 
+# On crée la zone de texte avec un label caché (label_visibility="collapsed")
+raw_text = st.text_area(
+    "Label invisible", 
+    placeholder="ex: 01/01/2025 75.5", 
+    height=200, 
+    label_visibility="collapsed"
+)
 if raw_text:
     # Regex pour capturer la date et le poids (accepte point et virgule)
     pattern = r"(\d{1,2}/\d{1,2}/\d{4}).*?(\d{2,3}[.,]?\d?)"
