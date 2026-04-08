@@ -12,14 +12,13 @@ st.title("Suivi et prédiction PDM")
 st.sidebar.header("Paramètres")
 forecast_days = st.sidebar.slider("Prédiction sur X jours", 30, 365, 90)
 
-st.sidebar.write("### Pondération de la prédiction")
 recent_weight = st.sidebar.slider(
-    "Ajustement de l'influence", 
+    "Je veux que ma prédiction soit basée sur :", 
     min_value=0, 
     max_value=100, 
     value=50) / 100
 
-st.sidebar.caption("⬅️ 0% = Tout l'historique | 100% = 30 derniers jours ➡️")
+st.sidebar.caption(" 0% = Tout l'historique | 100% = Les 30 derniers jours ")
 
 raw_text = st.text_area("Je colle mes poids avec leur date ici (ex: 01/01/2025 75.5) :", height=200)
 
@@ -108,6 +107,6 @@ if raw_text:
         else:
             st.error("Données invalides. Vérifiez le format (JJ/MM/AAAA Poids).")
     else:
-        st.info("Aucune donnée trouvée. Copiez vos notes au format : JJ/MM/AAAA Poids")
+        st.info("Aucune donnée trouvée. Il faut que vos notes au format : JJ/MM/AAAA Poids")
 else:
-    st.info("Copiez vos notes dans la zone de texte pour générer le graphique.")
+    st.info("Copie tes notes dans la zone de texte pour générer le graphique.")
