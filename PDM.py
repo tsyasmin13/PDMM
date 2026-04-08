@@ -9,6 +9,10 @@ st.set_page_config(page_title="PDM Tracker", layout="wide")
 st.title("Suivi et prédiction PDM")
 st.header("d")
 
+with st.container(border=True):
+    st.markdown("### 💡 Astuce PDM")
+    st.write("Pour une prédiction plus précise, essayez de vous peser à heure fixe, idéalement le matin à jeun.")
+
 # --- SIDEBAR ---
 st.sidebar.header("Paramètres")
 
