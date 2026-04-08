@@ -23,7 +23,7 @@ with st.container(border=True):
     st.write("Coucou mon amoureux ❤️")
     st.write("Comme promis, je t'ai codé un site qui te permet de voir ta progression. C'est super simple à utiliser et tu n'auras pas de difficultés vu que tu es super intelligent, super beau, super musclé, super drôle.")
     st.write("Si tu as des questions, envoie-moi un snap, j'essayerai de te répondre sous 3 à 5 jours ouvrés.")
-    st.markdown("Gros kiss,ton amoureuse")
+    st.markdown("Gros kiss, ton amoureuse")
 
 # --- SIDEBAR (PARAMÈTRES) ---
 st.sidebar.header("⚙️ Paramètres")
