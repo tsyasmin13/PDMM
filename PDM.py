@@ -38,7 +38,7 @@ c1, c2 = st.sidebar.columns(2)
 c1.caption("Tout l'historique")
 c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>30 derniers jours</p>", unsafe_allow_html=True)
 
-raw_text = st.text_area("Je colle mes poids avec leur date ici (ex: 01/01/2025 75.5) :", height=200)
+raw_text = st.text_area("Ici tu colles directement ta note avec tes poids avec leur date :", height=200)
 
 if raw_text:
     # Regex pour capturer la date et le poids (accepte point et virgule)
