@@ -38,7 +38,7 @@ c1, c2 = st.sidebar.columns(2)
 c1.caption("Tout l'historique")
 c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>30 derniers jours</p>", unsafe_allow_html=True)
 
-st.markdown("## **Ici tu colles directement ta note avec tes poids avec leur date :**")
+st.markdown("**Ici tu colles directement ta note avec tes poids avec leur date :**")
 
 # On crée la zone de texte avec un label caché (label_visibility="collapsed")
 raw_text = st.text_area(
