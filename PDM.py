@@ -157,7 +157,7 @@ if prompt := st.chat_input("Posez une question sur vos repas (ex: Que manger ce 
         full_prompt = f"Tu es un coach en nutrition. {context} Réponds à cette question : {prompt}"
         
         response = client.chat.completions.create(
-            model="gpt-4o-mini", # Use gpt-3.5-turbo if you want to save credits
+            model="gpt-3.5-turbo", # Use gpt-3.5-turbo if you want to save credits
             messages=[{"role": "system", "content": "Tu es un expert en nutrition concis et motivant."},
                       {"role": "user", "content": full_prompt}]
         )
