@@ -110,3 +110,52 @@ if raw_text:
         st.info("Aucune donnée trouvée. Il faut que vos notes au format : JJ/MM/AAAA Poids")
 else:
     st.info("Copie tes notes dans la zone de texte pour générer le graphique.")
+
+
+from openai import OpenAI
+
+# --- AI MEAL ASSISTANT ---
+st.write("---")
+st.header("assistant Nutritionnel AI")
+
+# Initialize OpenAI client (Replace 'your-api-key-here' or use st.secrets)
+client = OpenAI(api_key="YOUR_OPENAI_API_KEY")
+
+# Contextual data for the AI
+if not df.empty:
+    current_weight = df['Poids'].iloc[-1]
+    trend = "perte de poids" if m_hybrid < 0 else "prise de masse"
+    context = f"L'utilisateur pèse actuellement {current_weight}kg et est dans une phase de {trend}."
+else:
+    context = "L'utilisateur n'a pas encore saisi de données de poids."
+
+# Chat History
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat history
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# User Input
+if prompt := st.chat_input("Posez une question sur vos repas (ex: Que manger ce soir ?)"):
+    # Add user message to history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
+
+    # Generate AI response
+    with st.chat_message("assistant"):
+        full_prompt = f"Tu es un coach en nutrition. {context} Réponds à cette question : {prompt}"
+        
+        response = client.chat.completions.create(
+            model="gpt-4o-mini", # Use gpt-3.5-turbo if you want to save credits
+            messages=[{"role": "system", "content": "Tu es un expert en nutrition concis et motivant."},
+                      {"role": "user", "content": full_prompt}]
+        )
+        answer = response.choices[0].message.content
+        st.markdown(answer)
+    
+    # Add assistant response to history
+    st.session_state.messages.append({"role": "assistant", "content": answer})
