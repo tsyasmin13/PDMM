@@ -83,7 +83,6 @@ if raw_text:
         if not df.empty and 'Poids' in df.columns:
             
             # --- OPTIMISATION FLUIDITÉ (Lissage EWMA) ---
-            # 'span=7' lisse les variations sur environ une semaine
             df['Poids_Lisse'] = df['Poids'].ewm(span=7).mean()
 
             # --- CALCULS DES PENTES ---
@@ -108,7 +107,6 @@ if raw_text:
 
             # --- PRÉDICTION ---
             last_date = df['Date'].max()
-            # On part du dernier point LISSÉ pour une prédiction plus propre
             last_weight_smooth = df['Poids_Lisse'].iloc[-1]
             last_weight_real = df['Poids'].iloc[-1]
             
@@ -118,7 +116,7 @@ if raw_text:
             # --- GRAPHIQUE ---
             fig = go.Figure()
 
-            # 1. Vrais poids (Points discrets en arrière-plan)
+            # 1. Vrais poids (Points discrets)
             fig.add_trace(go.Scatter(
                 x=df['Date'], y=df['Poids'], 
                 mode='markers', name='Poids réels',
@@ -129,7 +127,7 @@ if raw_text:
             fig.add_trace(go.Scatter(
                 x=df['Date'], y=df['Poids_Lisse'], 
                 mode='lines', name='Tendance fluide',
-                line=dict(color='#1f77b4', width=4, shape='spline') # Spline = Courbes
+                line=dict(color='#1f77b4', width=4, shape='spline')
             ))
             
             # 3. Prédiction (Ligne verte pointillée)
@@ -169,106 +167,4 @@ if raw_text:
     else:
         st.info("💡 J'attends tes données... Copie-les au format 'Date Poids' !")
 else:
-    st.info("👋 Hello ! Colle tes données de poids ci-dessus pour voir la magie opérer.")c1, c2 = st.sidebar.columns(2)
-c1.caption("Tout l'historique")
-c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>30 derniers jours</p>", unsafe_allow_html=True)
-
-st.markdown("**Ici tu colles directement ta note avec tes poids avec leur date :**")
-
-# On crée la zone de texte avec un label caché (label_visibility="collapsed")
-raw_text = st.text_area(
-    "Label invisible", 
-    placeholder="ex: 01/01/2025 75.5", 
-    height=200, 
-    label_visibility="collapsed"
-)
-if raw_text:
-    # Regex pour capturer la date et le poids (accepte point et virgule)
-    pattern = r"(\d{1,2}/\d{1,2}/\d{4}).*?(\d{2,3}[.,]?\d?)"
-    matches = re.findall(pattern, raw_text)
-
-    if matches:
-        data = []
-        for m_date, m_weight in matches:
-            try:
-                # Nettoyage du poids (remplacement virgule par point)
-                val_weight = float(m_weight.replace(',', '.'))
-                # Conversion de la date
-                clean_date = pd.to_datetime(m_date, dayfirst=True)
-                data.append({"Date": clean_date, "Poids": val_weight})
-            except:
-                continue
-
-        df = pd.DataFrame(data).sort_values("Date")
-
-        if not df.empty and 'Poids' in df.columns:
-            # --- 1. CALCUL DES PENTES ---
-            first_date = df['Date'].min()
-            df['DaysPassed'] = (df['Date'] - first_date).dt.days
-            
-            # Pente Globale (Regression linéaire sur tout)
-            m_global, _ = np.polyfit(df['DaysPassed'], df['Poids'], 1)
-            
-            # Pente Récente (Regression sur les 30 derniers jours)
-            recent_cutoff = df['Date'].max() - timedelta(days=30)
-            recent_df = df[df['Date'] > recent_cutoff]
-            
-            if len(recent_df) > 1:
-                r_days = (recent_df['Date'] - recent_df['Date'].min()).dt.days
-                m_recent, _ = np.polyfit(r_days, recent_df['Poids'], 1)
-            else:
-                m_recent = m_global 
-
-            # Mélange hybride
-            m_hybrid = (m_global * (1 - recent_weight)) + (m_recent * recent_weight)
-
-            # --- 2. PRÉDICTION ---
-            last_date = df['Date'].max()
-            last_weight = df['Poids'].iloc[-1]
-            future_dates = [last_date + timedelta(days=x) for x in range(0, forecast_days + 1)]
-            prediction_path = [last_weight + (m_hybrid * x) for x in range(0, forecast_days + 1)]
-
-            # --- 3. GRAPHIQUE ---
-            fig = go.Figure()
-
-            # Historique en BLEU
-            fig.add_trace(go.Scatter(
-                x=df['Date'], y=df['Poids'], 
-                mode='lines+markers', name='Historique',
-                line=dict(color='#1f77b4', width=3),
-                marker=dict(size=3, opacity=0.6)
-            ))
-            
-            # Prédiction en VERT
-            fig.add_trace(go.Scatter(
-                x=future_dates, y=prediction_path, 
-                mode='lines+markers', name='Prédiction',
-                line=dict(color='#2ca02c', width=2, dash='dot'),
-                marker=dict(size=3, symbol='circle')
-            ))
-
-            fig.update_layout(
-                template="plotly_dark", 
-                title="Évolution du poids",
-                xaxis_title="Date",
-                yaxis_title="Poids (kg)",
-                hovermode="x unified"
-            )
-            
-            st.plotly_chart(fig, use_container_width=True)
-
-            # --- STATS ---
-            st.write("### Statistiques")
-            c1, c2 = st.columns(2)
-            c1.metric("Poids actuel", f"{last_weight} kg")
-            c2.metric(f"Projecté dans ({forecast_days} jours )", 
-                      f"{prediction_path[-1]:.1f} kg", 
-                      f"{prediction_path[-1]-last_weight:+.1f} kg")
-        else:
-            st.error("Données invalides. Vérifiez le format (JJ/MM/AAAA Poids).")
-    else:
-        st.info("Aucune donnée trouvée. Il faut que vos notes au format : JJ/MM/AAAA Poids")
-else:
-    st.info("Copie tes notes dans la zone de texte pour générer le graphique.")
-
-
+    st.info("👋 Hello ! Colle tes données de poids ci-dessus pour voir la magie opérer.")
