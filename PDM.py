@@ -114,6 +114,13 @@ else:
 
 from openai import OpenAI
 
+# This is SAFE for GitHub because it doesn't contain the key itself
+try:
+    client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+except Exception as e:
+    st.error("API Key non configurée. Ajoutez-la dans les secrets de Streamlit.")
+
+
 # --- AI MEAL ASSISTANT ---
 st.write("---")
 st.header("assistant Nutritionnel AI")
