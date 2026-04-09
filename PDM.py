@@ -133,9 +133,8 @@ if raw_text:
                 name='Prédiction',
                 marker=dict(
                     color='#ca0201', 
-                    size=5, 
-                    symbol='circle',
-                    line=dict(width=1)
+                    size=3, 
+                    symbol='circle'
                 )
             ))
 
