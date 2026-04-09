@@ -23,6 +23,21 @@ st.markdown("""
         color: #000000 !important;
         margin-bottom: 8px;
     }
+    /* 1. Change la couleur du rail (la barre) du slider */
+    .stSlider [data-baseweb="slider"] > div > div {
+        background: #ca0201 !important;
+    }
+
+    /* 2. Change la couleur du bouton (le cercle) du slider */
+    .stSlider [data-baseweb="slider"] [role="slider"] {
+        background-color: #ca0201 !important;
+        border-color: #ca0201 !important;
+    }
+
+    /* 3. Change la couleur de la valeur qui s'affiche au-dessus du bouton */
+    .stSlider [data-testid="stThumbValue"] {
+        color: #ca0201 !important;
+    }
 
     /* Style des metrics en bas */
     .stMetric { 
