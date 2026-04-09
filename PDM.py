@@ -34,10 +34,6 @@ st.markdown("""
         border-color: #ca0201 !important;
     }
 
-    /* 3. Change la couleur de la valeur qui s'affiche au-dessus du bouton */
-    .stSlider [data-testid="stThumbValue"] {
-        color: #ca0201 !important;
-    }
 
     /* Style des metrics en bas */
     .stMetric { 
