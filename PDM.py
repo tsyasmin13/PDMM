@@ -110,7 +110,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # --- SIDEBAR ---
-st.sidebar.header("⚙️ Paramètres")
+st.sidebar.header("⚙️ PARAMETRES")
 
 forecast_days = st.sidebar.slider("Nombre de jours à prédire :", 30, 365, 90)
 col_a, col_b = st.sidebar.columns(2)
