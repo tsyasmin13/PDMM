@@ -116,33 +116,33 @@ if raw_text:
             # --- GRAPHIQUE ---
             fig = go.Figure()
 
-            # 1. Vrais poids (Points discrets)
+            # 1. HISTORIQUE : Ligne rouge fluide (ton rouge choisi #ca0201)
             fig.add_trace(go.Scatter(
-                x=df['Date'], y=df['Poids'], 
-                mode='markers', name='Poids réels',
-                marker=dict(size=5, color='rgba(255, 255, 255, 0.3)')
-    
-            ))
-
-            # 2. Tendance lissée (Ligne bleue fluide)
-            fig.add_trace(go.Scatter(
-                x=df['Date'], y=df['Poids_Lisse'], 
-                mode='lines', name='Tendance fluide',
+                x=df['Date'], 
+                y=df['Poids_Lisse'], 
+                mode='lines', 
+                name='Historique',
                 line=dict(color='#ca0201', width=4, shape='spline')
             ))
             
-            # 3. Prédiction (Ligne verte pointillée)
+            # 2. PRÉDICTION : Uniquement des points (dots) en rouge
             fig.add_trace(go.Scatter(
-                x=future_dates, y=prediction_path, 
-                mode='lines+markers', name='Projection',
-                #line=dict(color='#ca0201', width=2, dash='dot'),
-                marker=dict(color='#ca0201',size=4, symbol='circle-open')
+                x=future_dates, 
+                y=prediction_path, 
+                mode='markers', # 'markers' seul retire la ligne
+                name='Prédiction',
+                marker=dict(
+                    color='#ca0201', 
+                    size=5, 
+                    symbol='circle-open', # Cercle vide pour un look stylé
+                    line=dict(width=1)
+                )
             ))
 
             fig.update_layout(
                 template="plotly_dark", 
                 margin=dict(l=20, r=20, t=40, b=20),
-                xaxis_title="Temps",
+                xaxis_title="Date",
                 yaxis_title="Poids (kg)",
                 hovermode="x unified",
                 legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
