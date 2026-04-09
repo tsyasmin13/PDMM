@@ -13,7 +13,7 @@ st.markdown("""
     <style>
    /* 1. FOND DE TOUTE LA PAGE (Blanc cassé / Crème) */
     .stApp {
-        background-color: #FDF5E6 !important;
+        background-color: ##fffff3 !important;
     }
 
     /* 2. TEXTE GÉNÉRAL (Noir pour être lisible sur le crème) */
@@ -23,7 +23,7 @@ st.markdown("""
 
     /* 3. BARRE LATÉRALE (SIDEBAR) */
     [data-testid="stSidebar"] {
-        background-color: #F5E6D3 !important; /* Crème un peu plus foncé */
+        background-color: ##fffff3 !important; /* Crème un peu plus foncé */
     }
     [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] h2 {
         color: #2C2C2C !important;
@@ -31,7 +31,7 @@ st.markdown("""
 
     /* 4. BLOC MESSAGE D'AMOUR (Rose #F5D1D0) */
     .message-damour {
-        background-color: #F5D1D0;
+        background-color: #ca0201;
         padding: 20px;
         border-radius: 15px;
         border: 1px solid #ca0201;
@@ -39,7 +39,7 @@ st.markdown("""
         box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
     }
     .message-damour p, .message-damour h3, .message-damour strong {
-        color: #000000 !important;
+        color: #fffff3 !important;
     }
 
     /* 5. SLIDERS (Rouge #ca0201) */
