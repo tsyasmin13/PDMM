@@ -7,14 +7,30 @@ import numpy as np
 
 # Configuration de la page
 st.set_page_config(page_title="PDM Tracker", layout="wide", page_icon="📈")
-
-# Style CSS pour un look pro et moderne
 st.markdown("""
     <style>
-    .stMetric { background-color: rgba(239, 179, 178, 0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(28, 131, 225, 0.2); }
-    [data-testid="stMetricValue"] { color: #1f77b4; }
+    /* Change le fond de la zone de texte (Text Area) */
+    .stTextArea textarea {
+        background-color: #EFB3B2 !important;
+        color: #000000 !important; /* Texte en noir pour être lisible sur le rose */
+        border-radius: 10px;
+        border: 1px solid #ca0201; /* Optionnel : une petite bordure rouge rappelant ton graph */
+    }
+
+    /* Optionnel : Change la couleur du texte d'exemple (placeholder) */
+    .stTextArea textarea::placeholder {
+        color: rgba(0, 0, 0, 0.5) !important;
+    }
+    
+    /* Change aussi le fond du message d'accueil si tu veux l'harmoniser */
+    .stAlert, [data-testid="stMetric"] {
+        background-color: rgba(239, 179, 178, 0.1) !important;
+    }
     </style>
     """, unsafe_allow_html=True)
+
+# Style CSS pour un look pro et moderne
+
 
 st.title("📈 Suivi et prédiction PDM")
 
