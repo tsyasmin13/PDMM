@@ -18,7 +18,7 @@ st.markdown("""
 
     /* 2. TEXTE GÉNÉRAL (Noir pour être lisible sur le crème) */
     .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp span, .stApp label, .stApp li {
-        color: #2C2C2C !important;
+        color: #ca0201 !important;
     }
 
     /* 3. BARRE LATÉRALE (SIDEBAR) */
@@ -79,9 +79,9 @@ st.markdown("""
 
     /* 7. ZONE DE SAISIE (Text Area) */
     .stTextArea textarea {
-        background-color: #ffffff !important;
+        background-color: #F5D1D0 !important;
         color: #000000 !important;
-        border: 1px solid #cccccc !important;
+        border: 1px solid #F5D1D0 !important;
     }
     </style>
     """, unsafe_allow_html=True)
