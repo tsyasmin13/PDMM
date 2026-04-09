@@ -23,24 +23,28 @@ st.markdown("""
         color: #000000 !important;
         margin-bottom: 8px;
     }
-    /* 1. Change la couleur du rail (la barre) du slider */
-    .stSlider [data-baseweb="slider"] > div > div {
-        background: #ca0201 !important;
+    /* 1. Couleur de la partie ACTIVE (à gauche du bouton) */
+    .stSlider [data-baseweb="slider"] > div > div > div > div {
+        background-color: #ca0201 !important;
     }
 
-    /* 2. Change la couleur du bouton (le cercle) du slider */
+    /* 2. Couleur de la partie INACTIVE (le rail restant à droite) */
+    /* On le met en gris clair pour qu'on voit bien la différence */
+    .stSlider [data-baseweb="slider"] > div > div {
+        background-color: rgba(151, 151, 151, 0.2) !important;
+    }
+
+    /* 3. Le bouton (le cercle) */
     .stSlider [data-baseweb="slider"] [role="slider"] {
         background-color: #ca0201 !important;
-        border-color: #ca0201 !important;
+        border: 2px solid #ca0201 !important;
+        box-shadow: none !important;
     }
 
-
-    /* Style des metrics en bas */
-    .stMetric { 
-        background-color: rgba(245, 209, 208, 0.3); 
-        padding: 15px; 
-        border-radius: 10px; 
-        border: 1px solid #F5D1D0; 
+    /* 4. La valeur au-dessus du bouton */
+    .stSlider [data-testid="stThumbValue"] {
+        color: #ca0201 !important;
+        font-weight: bold;
     }
     </style>
     """, unsafe_allow_html=True)
