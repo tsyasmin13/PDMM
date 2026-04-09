@@ -28,11 +28,7 @@ st.markdown("""
     [data-testid="stSidebar"] {
         background-color: #fffff3 !important;
     }
- /* --- ICI LE CHANGEMENT : PARAMÈTRES EN NOIR --- */
-    [data-testid="stSidebar"] h2 {
-        color: #000000 !important;
-        font-weight: bold !important;
-    }
+
     [data-testid="stSidebar"] h2, 
     [data-testid="stSidebar"] label p,
     [data-testid="stSidebar"] h3 {
@@ -42,6 +38,10 @@ st.markdown("""
     .sidebar-text {
         color: ##ca0201 !important;
         font-size: 0.8rem;
+    }
+      [data-testid="stSidebar"] h2 {
+        color: #000000 !important;
+        font-weight: bold !important;
     }
 
     /* 4. BLOC MESSAGE D'AMOUR (Bloc rouge, texte blanc) */
