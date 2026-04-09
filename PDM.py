@@ -8,55 +8,54 @@ import numpy as np
 # Configuration de la page
 st.set_page_config(page_title="PDM Tracker", layout="wide", page_icon="📈")
 
-# --- STYLE CSS ---
+# --- TOUT LE STYLE CSS ---
 st.markdown("""
     <style>
-   /* 1. FOND DE TOUTE LA PAGE (Blanc cassé / Crème) */
+    /* 1. FOND DE TOUTE LA PAGE (Blanc cassé / Crème) */
     .stApp {
-        background-color: ##fffff3 !important;
+        background-color: #FDF5E6 !important;
     }
 
-    /* 2. TEXTE GÉNÉRAL (Noir pour être lisible sur le crème) */
-    .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp span, .stApp label, .stApp li {
-        color: #ca0201 !important;
+    /* 2. TEXTE GÉNÉRAL (Noir pour la lisibilité) */
+    .stApp p, .stApp h1, .stApp h3, .stApp span, .stApp li {
+        color: #000000 !important;
     }
 
     /* 3. BARRE LATÉRALE (SIDEBAR) */
     [data-testid="stSidebar"] {
-        background-color: ##fffff3 !important; /* Crème un peu plus foncé */
+        background-color: #F5E6D3 !important;
     }
-    [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] h2 {
-        color: #2C2C2C !important;
+    /* Titres et labels de la sidebar en ROUGE */
+    [data-testid="stSidebar"] h2, 
+    [data-testid="stSidebar"] label p,
+    [data-testid="stSidebar"] h3 {
+        color: #ca0201 !important;
+        font-weight: bold !important;
     }
 
-    /* 4. BLOC MESSAGE D'AMOUR (Rose #F5D1D0) */
+    /* 4. BLOC MESSAGE D'AMOUR (Rose) */
     .message-damour {
-        background-color: #ca0201;
+        background-color: #F5D1D0;
         padding: 20px;
         border-radius: 15px;
         border: 1px solid #ca0201;
         margin-bottom: 25px;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
     }
-    .message-damour p, .message-damour h3, .message-damour strong {
-        color: #fffff3 !important;
+    .message-damour p, .message-damour h3 {
+        color: #000000 !important;
     }
 
     /* 5. SLIDERS (Rouge #ca0201) */
-    /* Partie active (gauche) */
     .stSlider [data-baseweb="slider"] > div > div > div > div {
         background-color: #ca0201 !important;
     }
-    /* Rail inactif (droite) */
     .stSlider [data-baseweb="slider"] > div > div {
         background-color: rgba(151, 151, 151, 0.2) !important;
     }
-    /* Le bouton (cercle) */
     .stSlider [data-baseweb="slider"] [role="slider"] {
         background-color: #ca0201 !important;
         border: 2px solid #ca0201 !important;
     }
-    /* Valeur au-dessus du bouton */
     .stSlider [data-testid="stThumbValue"] {
         color: #ca0201 !important;
         font-weight: bold;
@@ -64,37 +63,38 @@ st.markdown("""
 
     /* 6. STATISTIQUES (Metrics en bas) */
     .stMetric { 
-        background-color: #F5D1D0 !important; /* Rappel du rose */
+        background-color: #F5D1D0 !important;
         padding: 15px; 
         border-radius: 10px; 
         border: 1px solid #ca0201; 
     }
-    [data-testid="stMetricLabel"] p {
-        color: #000000 !important;
-    }
-    [data-testid="stMetricValue"] div {
-        color: #ca0201 !important;
-        font-weight: bold;
-    }
+    [data-testid="stMetricLabel"] p { color: #000000 !important; }
+    [data-testid="stMetricValue"] div { color: #ca0201 !important; font-weight: bold; }
 
-    /* 7. ZONE DE SAISIE (Text Area) */
+    /* 7. ZONE DE SAISIE */
     .stTextArea textarea {
-        background-color: #F5D1D0 !important;
+        background-color: #ffffff !important;
         color: #000000 !important;
-        border: 1px solid #F5D1D0 !important;
+        border: 1px solid #cccccc !important;
+    }
+    .saisie-titre {
+        color: #000000 !important;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 0px;
     }
     </style>
     """, unsafe_allow_html=True)
 
 st.title("📈 Suivi et prédiction PDM")
 
-# --- MESSAGE PERSONNEL (Corrigé pour être rose) ---
+# --- MESSAGE PERSONNEL ---
 st.markdown(f"""
     <div class="message-damour">
-        <p>Coucou mon amoureux ❤️</p>
+        <h3>Coucou mon amoureux ❤️</h3>
         <p>Comme promis, je t'ai codé un site qui te permet de voir ta progression. C'est super simple à utiliser et tu n'auras pas de difficultés vu que tu es super intelligent, super beau, super musclé, super drôle.</p>
         <p>Si tu as des questions, envoie-moi un snap, j'essayerai de te répondre sous 3 à 5 jours ouvrés.</p>
-        <p><Gros kiss, ton amoureuse</p>
+        <p><strong>Gros kiss, ton amoureuse</strong></p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -103,13 +103,13 @@ st.sidebar.header("⚙️ Paramètres")
 
 forecast_days = st.sidebar.slider("Nombre de jours à prédire :", 30, 365, 90)
 col_a, col_b = st.sidebar.columns(2)
-col_a.caption("30 jours")
-col_b.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>365 jours</p>", unsafe_allow_html=True)
+col_a.markdown("<p style='color: #ca0201; font-size: 0.8rem;'>30 jours</p>", unsafe_allow_html=True)
+col_b.markdown("<p style='text-align: right; color: #ca0201; font-size: 0.8rem;'>365 jours</p>", unsafe_allow_html=True)
 
 st.sidebar.divider()
 
 st.sidebar.subheader("Méthode de calcul")
-recent_weight = st.sidebar.slider(
+recent_weight_val = st.sidebar.slider(
     "Pondération", 
     min_value=0, 
     max_value=100, 
@@ -117,17 +117,17 @@ recent_weight = st.sidebar.slider(
     label_visibility="collapsed") / 100
 
 c1, c2 = st.sidebar.columns(2)
-c1.caption("Sur tout l'historique")
-c2.markdown("<p style='text-align: right; color: gray; font-size: 0.8rem;'>Sur les 30 derniers jours</p>", unsafe_allow_html=True)
+c1.markdown("<p style='color: #ca0201; font-size: 0.8rem;'>Sur tout l'historique</p>", unsafe_allow_html=True)
+c2.markdown("<p style='text-align: right; color: #ca0201; font-size: 0.8rem;'>Sur les 30 derniers jours</p>", unsafe_allow_html=True)
 
 # --- ZONE DE SAISIE ---
 st.write("")
-st.markdown("### 📝 Saisie des données")
-st.markdown("**Ici tu colles directement ta note avec tes poids et leurs dates :**")
+st.markdown('<p class="saisie-titre">📝 Saisie des données</p>', unsafe_allow_html=True)
+st.markdown('<p style="color: #000000;">Ici tu colles directement ta note avec tes poids et leurs dates :</p>', unsafe_allow_html=True)
 
 raw_text = st.text_area(
     "Zone de saisie", 
-    placeholder="Exemple :\n19/08/2025 70.2\n20/09/2025 70.5\n21/08/2026 70.7", 
+    placeholder="Exemple :\n01/01/2026 75.5\n05/01/2026 75.8", 
     height=200, 
     label_visibility="collapsed"
 )
@@ -149,8 +149,10 @@ if raw_text:
         df = pd.DataFrame(data).sort_values("Date")
 
         if not df.empty and 'Poids' in df.columns:
+            # Lissage de la courbe
             df['Poids_Lisse'] = df['Poids'].ewm(span=7).mean()
             
+            # Calculs des pentes
             first_date = df['Date'].min()
             df['DaysPassed'] = (df['Date'] - first_date).dt.days
             m_global, _ = np.polyfit(df['DaysPassed'], df['Poids'], 1)
@@ -164,7 +166,7 @@ if raw_text:
             else:
                 m_recent = m_global 
 
-            m_hybrid = (m_global * (1 - recent_weight)) + (m_recent * recent_weight)
+            m_hybrid = (m_global * (1 - recent_weight_val)) + (m_recent * recent_weight_val)
 
             last_date = df['Date'].max()
             last_weight_smooth = df['Poids_Lisse'].iloc[-1]
@@ -173,34 +175,35 @@ if raw_text:
             future_dates = [last_date + timedelta(days=x) for x in range(0, forecast_days + 1)]
             prediction_path = [last_weight_smooth + (m_hybrid * x) for x in range(0, forecast_days + 1)]
 
+            # --- GRAPHIQUE ---
             fig = go.Figure()
 
-            # Historique
+            # Historique (Ligne rouge fluide)
             fig.add_trace(go.Scatter(
                 x=df['Date'], y=df['Poids_Lisse'], 
                 mode='lines', name='Historique',
                 line=dict(color='#ca0201', width=4, shape='spline')
             ))
             
-            # Prédiction espacée
+            # Prédiction (Dots espacés tous les 7 jours)
             fig.add_trace(go.Scatter(
-                x=future_dates[::5], 
-                y=prediction_path[::5],
-                mode='markers', 
-                name='Prédiction',
-                marker=dict(color='#ca0201', size=4, symbol='circle')
+                x=future_dates[::7], y=prediction_path[::7],
+                mode='markers', name='Prédiction',
+                marker=dict(color='#ca0201', size=5, symbol='circle')
             ))
 
             fig.update_layout(
-                template="plotly_dark", 
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)',
                 margin=dict(l=20, r=20, t=40, b=20),
-                xaxis_title="Date",
-                yaxis_title="Poids (kg)",
+                xaxis=dict(gridcolor='rgba(0,0,0,0.1)', tickfont=dict(color='black')),
+                yaxis=dict(gridcolor='rgba(0,0,0,0.1)', tickfont=dict(color='black')),
                 hovermode="x unified",
-                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+                legend=dict(font=dict(color="black"), orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
             )
             st.plotly_chart(fig, use_container_width=True)
 
+            # --- STATS ---
             st.markdown("### 📊 Statistiques")
             col_m1, col_m2, col_m3 = st.columns(3)
             col_m1.metric("Poids actuel", f"{last_weight_real} kg")
@@ -211,3 +214,5 @@ if raw_text:
             col_m3.metric("Vitesse actuelle", f"{weekly_rate:+.2f} kg / sem")
     else:
         st.info("💡 J'attends tes données... Copie-les au format 'Date Poids' !")
+else:
+    st.info("👋 Hello ! Colle tes données de poids ci-dessus pour voir la magie opérer.")
