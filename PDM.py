@@ -159,5 +159,3 @@ if raw_text:
             col_m3.metric("Vitesse actuelle", f"{weekly_rate:+.2f} kg / sem")
     else:
         st.info("💡 J'attends tes données... Copie-les au format 'Date Poids' !")
-else:
-    st.info("👋 Hello ! Colle tes données de poids ci-dessus pour voir la magie opérer.")
