@@ -97,10 +97,10 @@ st.markdown('<p class="title-rouge">📈 Suivi et prédiction PDM</p>', unsafe_a
 
 st.markdown("""
     <div class="message-damour">
-        <h3>Coucou mon amoureux ❤️</h3>
+        <p>Coucou mon amoureux ❤️</p>
         <p>Comme promis, je t'ai codé un site qui te permet de voir ta progression. C'est super simple à utiliser et tu n'auras pas de difficultés vu que tu es super intelligent, super beau, super musclé, super drôle.</p>
         <p>Si tu as des questions, envoie-moi un snap, j'essayerai de te répondre sous 3 à 5 jours ouvrés.</p>
-        <p><strong>Gros kiss, ton amoureuse</strong></p>
+        <p>Gros kiss, ton amoureuse</p>
     </div>
     """, unsafe_allow_html=True)
 
