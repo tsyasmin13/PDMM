@@ -135,8 +135,8 @@ if raw_text:
             fig.add_trace(go.Scatter(
                 x=future_dates, y=prediction_path, 
                 mode='lines+markers', name='Projection',
-                line=dict(color='#ca0201', width=2, dash='dot'),
-                marker=dict(size=4, symbol='circle-open')
+                #line=dict(color='#ca0201', width=2, dash='dot'),
+                marker=dict(color='#ca0201',size=4, symbol='circle-open')
             ))
 
             fig.update_layout(
