@@ -13,7 +13,7 @@ st.markdown("""
     <style>
     /* 1. FOND DE TOUTE LA PAGE */
     .stApp {
-        background-color: #FDF5E6 !important;
+        background-color: ##fffff3 !important;
     }
 
     /* 2. LE TITRE PRINCIPAL EN ROUGE */
@@ -26,7 +26,7 @@ st.markdown("""
 
     /* 3. BARRE LATÉRALE (SIDEBAR) */
     [data-testid="stSidebar"] {
-        background-color: #F5E6D3 !important;
+        background-color: ##fffff3 !important;
     }
     [data-testid="stSidebar"] h2, 
     [data-testid="stSidebar"] label p,
@@ -48,7 +48,7 @@ st.markdown("""
         box-shadow: 0px 4px 15px rgba(202, 2, 1, 0.2);
     }
     .message-damour h3, .message-damour p, .message-damour strong {
-        color: #FAF9F6 !important;
+        color: ##fffff3 !important;
     }
 
     /* 5. SLIDERS ROUGES */
