@@ -24,10 +24,7 @@ st.markdown("""
         margin-bottom: 20px;
     }
 
-    /* 3. BARRE LATÉRALE (SIDEBAR) */
-    [data-testid="stSidebar"] {
-        background-color: #ffffff !important;
-    }
+
     [data-testid="stSidebar"] h2, 
     [data-testid="stSidebar"] label p,
     [data-testid="stSidebar"] h3 {
