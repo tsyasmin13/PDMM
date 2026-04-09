@@ -24,7 +24,15 @@ st.markdown("""
         margin-bottom: 20px;
     }
 
-
+/* 3. BARRE LATÉRALE (SIDEBAR) */
+    [data-testid="stSidebar"] {
+        background-color: #fffff3 !important;
+    }
+ /* --- ICI LE CHANGEMENT : PARAMÈTRES EN NOIR --- */
+    [data-testid="stSidebar"] h2 {
+        color: #000000 !important;
+        font-weight: bold !important;
+    }
     [data-testid="stSidebar"] h2, 
     [data-testid="stSidebar"] label p,
     [data-testid="stSidebar"] h3 {
