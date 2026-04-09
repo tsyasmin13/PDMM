@@ -134,7 +134,7 @@ if raw_text:
                 marker=dict(
                     color='#ca0201', 
                     size=5, 
-                    symbol='circle-open', # Cercle vide pour un look stylé
+                    symbol='circle', # Cercle vide pour un look stylé
                     line=dict(width=1)
                 )
             ))
