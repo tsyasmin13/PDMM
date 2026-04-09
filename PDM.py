@@ -35,7 +35,7 @@ st.markdown("""
         font-weight: bold !important;
     }
     .sidebar-text {
-        color: #ca0201 !important;
+        color: ##ca0201 !important;
         font-size: 0.8rem;
     }
 
