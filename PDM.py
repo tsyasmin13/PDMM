@@ -11,40 +11,77 @@ st.set_page_config(page_title="PDM Tracker", layout="wide", page_icon="📈")
 # --- STYLE CSS ---
 st.markdown("""
     <style>
-    /* Style du bloc message d'amour */
+   /* 1. FOND DE TOUTE LA PAGE (Blanc cassé / Crème) */
+    .stApp {
+        background-color: #FDF5E6 !important;
+    }
+
+    /* 2. TEXTE GÉNÉRAL (Noir pour être lisible sur le crème) */
+    .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp span, .stApp label, .stApp li {
+        color: #2C2C2C !important;
+    }
+
+    /* 3. BARRE LATÉRALE (SIDEBAR) */
+    [data-testid="stSidebar"] {
+        background-color: #F5E6D3 !important; /* Crème un peu plus foncé */
+    }
+    [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] h2 {
+        color: #2C2C2C !important;
+    }
+
+    /* 4. BLOC MESSAGE D'AMOUR (Rose #F5D1D0) */
     .message-damour {
         background-color: #F5D1D0;
         padding: 20px;
         border-radius: 15px;
-        border: 1px solid #F5D1D0;
+        border: 1px solid #ca0201;
         margin-bottom: 25px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
     }
-    .message-damour p, .message-damour h3 {
+    .message-damour p, .message-damour h3, .message-damour strong {
         color: #000000 !important;
-        margin-bottom: 8px;
     }
-    /* 1. Couleur de la partie ACTIVE (à gauche du bouton) */
+
+    /* 5. SLIDERS (Rouge #ca0201) */
+    /* Partie active (gauche) */
     .stSlider [data-baseweb="slider"] > div > div > div > div {
         background-color: #ca0201 !important;
     }
-
-    /* 2. Couleur de la partie INACTIVE (le rail restant à droite) */
-    /* On le met en gris clair pour qu'on voit bien la différence */
+    /* Rail inactif (droite) */
     .stSlider [data-baseweb="slider"] > div > div {
         background-color: rgba(151, 151, 151, 0.2) !important;
     }
-
-    /* 3. Le bouton (le cercle) */
+    /* Le bouton (cercle) */
     .stSlider [data-baseweb="slider"] [role="slider"] {
         background-color: #ca0201 !important;
         border: 2px solid #ca0201 !important;
-        box-shadow: none !important;
     }
-
-    /* 4. La valeur au-dessus du bouton */
+    /* Valeur au-dessus du bouton */
     .stSlider [data-testid="stThumbValue"] {
         color: #ca0201 !important;
         font-weight: bold;
+    }
+
+    /* 6. STATISTIQUES (Metrics en bas) */
+    .stMetric { 
+        background-color: #F5D1D0 !important; /* Rappel du rose */
+        padding: 15px; 
+        border-radius: 10px; 
+        border: 1px solid #ca0201; 
+    }
+    [data-testid="stMetricLabel"] p {
+        color: #000000 !important;
+    }
+    [data-testid="stMetricValue"] div {
+        color: #ca0201 !important;
+        font-weight: bold;
+    }
+
+    /* 7. ZONE DE SAISIE (Text Area) */
+    .stTextArea textarea {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #cccccc !important;
     }
     </style>
     """, unsafe_allow_html=True)
