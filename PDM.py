@@ -11,10 +11,9 @@ st.markdown("""
     <style>
     /* Change le fond de la zone de texte (Text Area) */
     .stTextArea textarea {
-        background-color: #EFB3B2 !important;
+        background-color: #F5D1D0 !important;
         color: #000000 !important; /* Texte en noir pour être lisible sur le rose */
-        border-radius: 10px;
-        border: 1px solid #ca0201; /* Optionnel : une petite bordure rouge rappelant ton graph */
+        
     }
 
     /* Optionnel : Change la couleur du texte d'exemple (placeholder) */
