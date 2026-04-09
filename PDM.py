@@ -127,14 +127,14 @@ if raw_text:
             
             # 2. PRÉDICTION : Uniquement des points (dots) en rouge
             fig.add_trace(go.Scatter(
-                x=future_dates, 
-                y=prediction_path, 
+                x=future_dates[::7], 
+                y=prediction_path[::7],
                 mode='markers', # 'markers' seul retire la ligne
                 name='Prédiction',
                 marker=dict(
                     color='#ca0201', 
                     size=5, 
-                    symbol='circle', # Cercle vide pour un look stylé
+                    symbol='circle',
                     line=dict(width=1)
                 )
             ))
