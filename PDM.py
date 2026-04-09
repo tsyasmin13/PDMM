@@ -23,7 +23,7 @@ st.markdown("""
 
     /* 3. BARRE LATÉRALE (SIDEBAR) */
     [data-testid="stSidebar"] {
-        background-color: #F5E6D3 !important;
+        background-color: ##fffff3 !important;
     }
     /* Titres et labels de la sidebar en ROUGE */
     [data-testid="stSidebar"] h2, 
