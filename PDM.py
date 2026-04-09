@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import numpy as np
 
 # Configuration de la page
-st.set_page_config(page_title="Bulk-o-mètre", layout="wide", page_icon="")
+st.set_page_config(page_title="BULK-O-METRE", layout="wide", page_icon="")
 
 # --- STYLE CSS ---
 st.markdown("""
