@@ -13,7 +13,7 @@ st.markdown("""
     <style>
     /* 1. FOND DE TOUTE LA PAGE (Blanc cassé / Crème) */
     .stApp {
-        background-color: #FDF5E6 !important;
+        background-color: ##fffff3 !important;
     }
 
     /* 2. TEXTE GÉNÉRAL (Noir pour la lisibilité) */
@@ -23,7 +23,7 @@ st.markdown("""
 
     /* 3. BARRE LATÉRALE (SIDEBAR) */
     [data-testid="stSidebar"] {
-        background-color: ##fffff3 !important;
+        background-color: #fffff3 !important;
     }
     /* Titres et labels de la sidebar en ROUGE */
     [data-testid="stSidebar"] h2, 
@@ -35,14 +35,14 @@ st.markdown("""
 
     /* 4. BLOC MESSAGE D'AMOUR (Rose) */
     .message-damour {
-        background-color: #F5D1D0;
+        background-color: #ca0201;
         padding: 20px;
         border-radius: 15px;
         border: 1px solid #ca0201;
         margin-bottom: 25px;
     }
     .message-damour p, .message-damour h3 {
-        color: #000000 !important;
+        color: #fffff3 !important;
     }
 
     /* 5. SLIDERS (Rouge #ca0201) */
