@@ -16,7 +16,7 @@ st.markdown("""
         background-color: #F5D1D0;
         padding: 20px;
         border-radius: 15px;
-        border: 1px solid #ca0201;
+        border: 1px solid #F5D1D0;
         margin-bottom: 25px;
     }
     .message-damour p, .message-damour h3 {
@@ -29,7 +29,7 @@ st.markdown("""
         background-color: rgba(245, 209, 208, 0.3); 
         padding: 15px; 
         border-radius: 10px; 
-        border: 1px solid #ca0201; 
+        border: 1px solid #F5D1D0; 
     }
     </style>
     """, unsafe_allow_html=True)
@@ -39,10 +39,10 @@ st.title("📈 Suivi et prédiction PDM")
 # --- MESSAGE PERSONNEL (Corrigé pour être rose) ---
 st.markdown(f"""
     <div class="message-damour">
-        <h3>Coucou mon amoureux ❤️</h3>
+        <p>Coucou mon amoureux ❤️</p>
         <p>Comme promis, je t'ai codé un site qui te permet de voir ta progression. C'est super simple à utiliser et tu n'auras pas de difficultés vu que tu es super intelligent, super beau, super musclé, super drôle.</p>
         <p>Si tu as des questions, envoie-moi un snap, j'essayerai de te répondre sous 3 à 5 jours ouvrés.</p>
-        <p><strong>Gros kiss, ton amoureuse</strong></p>
+        <p><Gros kiss, ton amoureuse</p>
     </div>
     """, unsafe_allow_html=True)
 
