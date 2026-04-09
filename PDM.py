@@ -123,8 +123,9 @@ recent_weight_val = st.sidebar.slider(
     label_visibility="collapsed") / 100
 
 c1, c2 = st.sidebar.columns(2)
-c1.markdown('<p class="sidebar-text">Sur tout l'historique</p>', unsafe_allow_html=True)
-c2.markdown('<p class="sidebar-text" style="text-align: right;">Sur les 30 derniers jours</p>', unsafe_allow_html=True)
+# FIX : Utilisation de doubles guillemets ici pour éviter l'erreur sur "l'historique"
+c1.markdown("<p class='sidebar-text'>Sur tout l'historique</p>", unsafe_allow_html=True)
+c2.markdown("<p class='sidebar-text' style='text-align: right;'>Sur les 30 derniers jours</p>", unsafe_allow_html=True)
 
 # --- SAISIE ---
 st.write("")
