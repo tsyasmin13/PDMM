@@ -121,20 +121,21 @@ if raw_text:
                 x=df['Date'], y=df['Poids'], 
                 mode='markers', name='Poids réels',
                 marker=dict(size=5, color='rgba(255, 255, 255, 0.3)')
+    
             ))
 
             # 2. Tendance lissée (Ligne bleue fluide)
             fig.add_trace(go.Scatter(
                 x=df['Date'], y=df['Poids_Lisse'], 
                 mode='lines', name='Tendance fluide',
-                line=dict(color='#1f77b4', width=4, shape='spline')
+                line=dict(color='#ca0201', width=4, shape='spline')
             ))
             
             # 3. Prédiction (Ligne verte pointillée)
             fig.add_trace(go.Scatter(
                 x=future_dates, y=prediction_path, 
                 mode='lines+markers', name='Projection',
-                line=dict(color='#2ca02c', width=2, dash='dot'),
+                line=dict(color='#ca0201', width=2, dash='dot'),
                 marker=dict(size=4, symbol='circle-open')
             ))
 
