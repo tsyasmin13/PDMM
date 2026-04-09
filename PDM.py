@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import numpy as np
 
 # Configuration de la page
-st.set_page_config(page_title="PDM Tracker", layout="wide", page_icon="📈")
+st.set_page_config(page_title="Bulko-o-mètre", layout="wide", page_icon="📈")
 
 # --- STYLE CSS ---
 st.markdown("""
@@ -19,7 +19,7 @@ st.markdown("""
     /* 2. LE TITRE PRINCIPAL EN ROUGE */
     .title-rouge {
         color: #ca0201 !important;
-        font-size: 3rem !important;
+        font-size: 2.7rem !important;
         font-weight: bold;
         margin-bottom: 20px;
     }
