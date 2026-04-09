@@ -37,7 +37,7 @@ st.markdown("""
     }
     .sidebar-text {
         color: ##ca0201 !important;
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
       [data-testid="stSidebar"] h2 {
         color: #000000 !important;
