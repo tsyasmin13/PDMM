@@ -110,28 +110,27 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # --- SIDEBAR ---
-st.sidebar.header("⚙️ PARAMETRES")
-
-forecast_days = st.sidebar.slider("Nombre de jours à prédire :", 30, 365, 90)
+# Premier Slider
+forecast_days = st.sidebar.slider("Nombre de jours à prédire :", 30, 365, 165)
 col_a, col_b = st.sidebar.columns(2)
 col_a.markdown('<p class="sidebar-text">30 jours</p>', unsafe_allow_html=True)
 col_b.markdown('<p class="sidebar-text" style="text-align: right;">365 jours</p>', unsafe_allow_html=True)
 
 st.sidebar.divider()
 
+# Deuxième Slider
 st.sidebar.subheader("Méthode de calcul")
 recent_weight_val = st.sidebar.slider(
     "Pondération", 
     min_value=0, 
     max_value=100, 
-    value=50,
+    value=44,
     label_visibility="collapsed") / 100
 
 c1, c2 = st.sidebar.columns(2)
-# FIX : Utilisation de doubles guillemets ici pour éviter l'erreur sur "l'historique"
-c1.markdown("<p class='sidebar-text'>Sur tout l'historique</p>", unsafe_allow_html=True)
-c2.markdown("<p class='sidebar-text' style='text-align: right;'>Sur les 30 derniers jours</p>", unsafe_allow_html=True)
-
+# On utilise bien class="sidebar-text" pour les deux
+c1.markdown('<p class="sidebar-text">Sur tout l\'historique</p>', unsafe_allow_html=True)
+c2.markdown('<p class="sidebar-text" style="text-align: right;">Sur les 30 derniers jours</p>', unsafe_allow_html=True)
 # --- SAISIE ---
 st.write("")
 st.markdown('<p class="saisie-titre">📝 Saisie des données</p>', unsafe_allow_html=True)
