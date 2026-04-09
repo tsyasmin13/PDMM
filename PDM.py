@@ -98,7 +98,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # --- CORPS DE L'APPLICATION ---
-st.markdown('<p class="title-rouge">📈 Suivi et prédiction PDM</p>', unsafe_allow_html=True)
+st.markdown('<p class="title-rouge">Bulko-o-mètre</p>', unsafe_allow_html=True)
 
 st.markdown("""
     <div class="message-damour">
