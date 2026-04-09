@@ -20,6 +20,11 @@ st.markdown("""
     .stApp p, .stApp h1, .stApp h3, .stApp span, .stApp li {
         color: #000000 !important;
     }
+    .title-rouge {
+        color: #ca0201 !important;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 20px;
 
     /* 3. BARRE LATÉRALE (SIDEBAR) */
     [data-testid="stSidebar"] {
