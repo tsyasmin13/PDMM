@@ -19,7 +19,7 @@ st.markdown("""
     /* 2. LE TITRE PRINCIPAL EN ROUGE */
     .title-rouge {
         color: #ca0201 !important;
-        font-size: 5rem;
+        font-size: 5rem !important;
         font-weight: bold;
         margin-bottom: 20px;
     }
