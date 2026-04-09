@@ -235,7 +235,7 @@ if raw_text:
     else:
         st.info("💡 J'attends tes données... Copie-les au format 'Date Poids' !")
 else:
-    st.info("👋 Hello ! Colle tes données de poids ci-dessus pour voir la magie opérer.")        color: #ca0201 !important;
+    st.info("👋 Hello ! Colle tes données de poids ci-dessus pour voir la magie opérer.")  {      color: #ca0201 !important;
         font-weight: bold !important;
     }
 
