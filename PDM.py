@@ -11,7 +11,7 @@ st.set_page_config(page_title="PDM Tracker", layout="wide", page_icon="📈")
 # Style CSS pour un look pro et moderne
 st.markdown("""
     <style>
-    .stMetric { background-color: rgba(28, 131, 225, 0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(28, 131, 225, 0.2); }
+    .stMetric { background-color: rgba(239, 179, 178, 0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(28, 131, 225, 0.2); }
     [data-testid="stMetricValue"] { color: #1f77b4; }
     </style>
     """, unsafe_allow_html=True)
