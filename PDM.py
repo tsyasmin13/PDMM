@@ -26,7 +26,7 @@ st.markdown("""
 
     /* 3. BARRE LATÉRALE (SIDEBAR) */
     [data-testid="stSidebar"] {
-        background-color: ##fffff3 !important;
+        background-color: #fffff3 !important;
     }
     [data-testid="stSidebar"] h2, 
     [data-testid="stSidebar"] label p,
@@ -48,7 +48,7 @@ st.markdown("""
         box-shadow: 0px 4px 15px rgba(202, 2, 1, 0.2);
     }
     .message-damour h3, .message-damour p, .message-damour strong {
-        color: ##fffff3 !important;
+        color: #fffff3 !important;
     }
 
     /* 5. SLIDERS ROUGES */
